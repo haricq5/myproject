@@ -19,6 +19,7 @@
     <packaging>bundle</packaging>
     <name>Training Project Bundle</name>
 
+
     <dependencies>
         <dependency>
             <groupId>org.osgi</groupId>
@@ -36,6 +37,25 @@
             <groupId>biz.aQute</groupId>
             <artifactId>bndlib</artifactId>
         </dependency>
+ <dependency>
+	<groupId>com.day.cq.wcm</groupId>
+	<artifactId>cq-wcm-commons</artifactId>
+	<version>5.6.4</version>
+	<scope>provided</scope>
+</dependency>
+<dependency>
+	<groupId>com.day.cq</groupId>
+	<artifactId>cq-commons</artifactId>
+	<version>5.6.4</version>
+	<scope>provided</scope>
+</dependency>
+	<dependency>
+	<groupId>com.day.cq</groupId>
+	<artifactId>cq-search</artifactId>
+	<version>5.6.4</version>
+	<scope>provided</scope>
+</dependency>
+      
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -60,6 +80,16 @@
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.jcr.api</artifactId>
         </dependency>
+        
+<!-- http://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+<dependency>
+    <groupId>com.googlecode.json-simple</groupId>
+    <artifactId>json-simple</artifactId>
+    <version>1.1</version>
+</dependency>
+
+        
+        
     </dependencies>
 
     <!-- ====================================================================== -->

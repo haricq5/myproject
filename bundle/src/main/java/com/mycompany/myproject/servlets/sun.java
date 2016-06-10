@@ -34,9 +34,6 @@ import java.net.HttpURLConnection;
 import javax.net.ssl.HttpsURLConnection;
 
 
-
-
-
 @SuppressWarnings("serial")
 @SlingServlet(
   metatype = true,
@@ -54,56 +51,27 @@ import javax.net.ssl.HttpsURLConnection;
     	
     	 String la = request.getParameter("nums");
     	 log.info("number is*********"+ la);
-    	 //response.getWriter().write("Hello numbers:"+la);
-    	 if(la!=null){
-    	 String Path = "http://www.twcnews.com/services/weather/sunmoon."+la+".json";
-    	 //response.getWriter().write("Path/n"+Path);
-    	// System.out.println("Path"+Path);
-    	 
-    	 
-    	 URL ll = new URL(Path);
-    	 
-    	 
-    	 log.info("url: " +ll);
-    	 
-    	 
-         //response.getWriter().write("url:"+ll);
-         
-         
-         HttpURLConnection connection = null;
-         connection = (HttpURLConnection) ll.openConnection();
-         
-         
-         
-         log.info("Connection: " + connection);
-         //response.getWriter().write("Connection: " + connection);
-         //int responseCode = -1;
-         //responseCode = connection.getResponseCode();
-         //response.getWriter().write("responseCode: " + responseCode );
-         BufferedReader in;
-         in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-         log.info("reader: " + in);
-         //response.getWriter().write("reader: " + in );
-         //String result = "";
-         //result = reader.readLine();
-        // log.info("result: " + result);
-         //response.getWriter().write("result: " + result );
-        
-         //response.setContentType("application/json");
-         //response.setCharacterEncoding("UTF-8");
-         //response.getWriter().write(result);
-         String inputLine = "";
- 		 //StringBuffer response = new StringBuffer();
- 		while ((inputLine = in.readLine()) != null) {
-			//response.append(inputLine);
+		  if(la!=null){
+    	 String Path = "http://www.twcnews.com/services/weather/current."+la+".json";
+		 URL url = new URL(Path);
+		 log.info("url: " +url);
+		 HttpURLConnection connection = null;
+         connection = (HttpURLConnection) url.openConnection();
+		 log.info("Connection: " + connection);
+		 BufferedReader reader;
+         reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+		 log.info("reader: " + reader);
+		 String result = "";
+		 //StringBuffer response = new StringBuffer();
+		 while ((result = reader.readLine()) != null) {
+			 response.getWriter().write(result);
+		    }
+		  } 
 		}
-		//in.close();
- 		response.getWriter().write(inputline);
-         }
-    	}
-    	catch(Exception e){
+        catch(Exception e){
     		
     	} 
 
     	}              
 }
+		
